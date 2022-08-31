@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Floral</title>
+<link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css"/>
+<link rel="stylesheet" href="./stylesheet/stylesheet.css">
+
+</head>
+
+<body>
+	<div class="jumbotron jumbotron-fluid" style="background-color: rgb(175, 238, 200)">
+	<br><br>
+	<div class="container"> <br>
+  	<h2 align="center">Flora DB</h2>
+    <hr><br><br><br>
+    </div>
+    </div><br>
+    
+    <div class="container my-2"></div>
+        <h2> List of all documented Floral entries</h2><br>
+		<a th:href="@{addFloralItem}" class="btn btn-primary btn-sm mb-3"> Add a Floral Item</a>
+        
+    	<table class="table table-striped table-responsive-md" border = 3>
+    	<thead class="thead-dark">
+    		<tr>
+    			<th> ID </th>&emsp;
+    			<th> name </th>&emsp;
+    			<th> scientific name </th>&emsp;
+    			<th> Location </th>
+    			<th> Risk </th>
+    			<th> Characteristics </th>
+    		</tr>
+    	</thead>
+    	<tbody>
+    		<tr th:each = "floral : ${listFloral}">
+    			<td th:text = "${floral.getFloralId}"/>&emsp;
+    			<td th:text = "${floral.getName}"/>&emsp;
+    			<td th:text = "${floral.scientificName}"/>&emsp;
+    			<td th:text = "${floral.location}"/>&emsp;
+    			<td th:text = "${floral.risk}"/>&emsp;
+    			<td th:text = "${floral.characteristics}"/>&emsp;
+    			<td><a th:href="@{/updateFloralItem/{floralId}(floralId=${floral.getFloralId})}" class="btn btn-primary"> Update </a></td><br>
+    			<td><a th:href="@{/deleteFloralEntry/{floralId}(floralId=${floral.getFloralId})}" class="btn btn-danger"> Delete </a></td>
+			</tr>
+    	</tbody></table><br><hr><br>
+    	        <a th:href="@{/}" class="btn btn-primary btn-sm mb-3"> Back </a>
+</body>
+</html>

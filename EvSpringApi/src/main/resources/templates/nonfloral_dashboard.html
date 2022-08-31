@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Non Floral</title>
+<link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css"/>
+<link rel="stylesheet" href="../templates/stylesheet/stylesheet.css">
+
+</head>
+
+<body>
+	<div class="jumbotron jumbotron-fluid" style="background-color: rgb(175, 238, 200)">
+	<br><br>
+    <div class="container">
+    <h2 align="center">Flora DB</h2>
+    <hr><br><br><br>
+    </div>
+    </div><br>
+    
+
+    <div class="container my-2"></div>
+        <h2> List of all documented Non-Floral entries</h2><br>
+        <a th:href = "@{/addNonFloralItem}" class="btn btn-primary btn-sm mb-3"> Add a Non-Floral Item</a><br><br>
+    	
+    	<table class="table table-striped" border = 3>
+    	<thead class="thead-dark">
+    		<tr>
+    			<th> ID </th>&emsp;
+    			<th> name </th>&emsp;
+    			<th> scientific name </th>&emsp;
+    			<th> Location </th>
+    			<th> Risk </th>
+    			<th> Characteristics </th>
+    		</tr>
+    	</thead>
+    	<tbody>
+    		<tr th:each = "nonFloral : ${listNonFloral}">
+    			<td th:text = "${nonFloral.nonFloralId}"/>&emsp;
+    			<td th:text = "${nonFloral.name}"/>&emsp;
+    			<td th:text = "${nonFloral.scientificName}"/>&emsp;
+    			<td th:text = "${nonFloral.location}"/>&emsp;
+    			<td th:text = "${nonFloral.risk}"/>&emsp;
+    			<td th:text = "${nonFloral.characteristics}"/>&emsp;
+    			<td><a th:href="@{/updateNonFloralItem/{nonFloralId}(nonFloralId=${nonFloral.getNonFloralId})}" class="btn btn-primary"> Update </a></td><br>
+    			<td><a th:href="@{/deleteNonFloralEntry/{nonFloralId}(nonFloralId=${nonFloral.getNonFloralId})}" class="btn btn-danger"> Delete </a></td>
+    		</tr>
+    	</tbody></table><br><hr><br>
+    	        <a th:href="@{/}" class="btn btn-primary btn-sm mb-3"> Back </a>
+    
+
+</body>
+</html>

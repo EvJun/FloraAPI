@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="ISO-8859-1">
+<title>Fungi</title>
+<link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css"/>
+<link rel="stylesheet" href="./stylesheet/stylesheet.css">
+
+</head>
+
+<body>
+	<div class="container">
+		<h1> Create New Non-Floral Entry</h1>
+		<hr>
+		<h2> Add Non-Floral </h2>
+		
+		<form action="#" th:action="@{/saveNonFloral}" th:object="${nonFloral}" method="POST">
+			<input type="text" th:field="*{name}"
+			 placeholder="Non-Floral Name" class="form-control mb-4 col-4">
+			 
+			<input type="text" th:field="*{scientificName}"
+			 placeholder="Scientific Name" class="form-control mb-4 col-4">
+			 
+			<input type="text" th:field="*{location}"
+			 placeholder="location" class="form-control mb-4 col-4">
+			 
+			<input type="text" th:field="*{risk}"
+			 placeholder="risk" class="form-control mb-4 col-4">
+			 
+			<input type="text" th:field="*{characteristics}"
+			 placeholder="characteristics" class="form-control mb-4 col-4">
+		
+			<button type="submit" value="Submit" class="btn btn-info col-2"> Add Non-Floral </button>
+		</form>
+		<br><hr><br>
+    	<a th:href="@{/nonfloral}" class="btn btn-primary btn-sm mb-3"> Back to Non-Floral List</a>
+	</div>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Fungi</title>
+<link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css"/>
+<link rel="stylesheet" href="./stylesheet/stylesheet.css">
+
+</head>
+
+<body>
+	<div align="center" class="container">
+		<h1> Flora DB</h1>
+		<hr>
+		<h2> Update Non-Floral Entry</h2>
+		
+		<form action="#" th:action="@{/saveNonFloral}" th:object="${nonFloral}" method="POST">
+			<table border="1" cellpadding="10">
+			<tr>
+			<td><input type="hidden" th:field="*{nonFloralId}" readonly="readonly"/></td>
+			</tr>
+			<tr>
+			<td>Name:</td>
+			<td><input type="text" th:field="*{name}"class="form-control mb-4 col-4"/></td><br>
+			</tr>
+			 <tr>
+			 <td>Scientific Name:</td>
+			<td><input type="text" th:field="*{scientificName}"class="form-control mb-4 col-4"/></td><br>
+			</tr>
+			 <tr>
+			 <td>Location:</td>
+			<td><input type="text" th:field="*{location}"class="form-control mb-4 col-4"/></td><br>
+			</tr>
+			 <tr>
+			 <td>Risk:</td>
+			<td><input type="text" th:field="*{risk}" placeholder="risk" class="form-control mb-4 col-4"/></td><br>
+			 </tr>
+			 <tr>
+			 <td>Characteristics:</td>
+			<td><input type="text" th:field="*{characteristics}"placeholder="characteristics" class="form-control mb-4 col-4"/><br>
+			 </tr>
+			<button type="submit" class="btn btn-info col-2"> Update Non-Floral </button>
+		</form>
+		<br><hr><br>
+    	<a th:href="@{/nonfloral}" class="btn btn-primary btn-sm mb-3"> Back to Non-Floral List</a>
+	
+	</div>
+</body>
+</html>
